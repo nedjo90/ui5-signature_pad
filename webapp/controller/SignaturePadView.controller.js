@@ -99,9 +99,22 @@ sap.ui.define([
             },
             onFileUploaderChange(oEvent) {
                 let file = oEvent.getParameter("files") && oEvent.getParameter("files")[0];
-                console.log('file :>> ', file);
-                const oImage = this.byId("imageBlobToFile");
-                oImage.setSrc(URL.createObjectURL(file))
+                if (file) {
+                    console.log('file :>> ', file);
+                    console.log('typeof file :>> ', typeof file);
+                    const oImage = this.byId("imageBlobToFile");
+                    oImage.setSrc(URL.createObjectURL(file));
+                    const oCodeEditor = this.byId("codeFileToBlob");
+                    const reader = new FileReader();
+                    reader.onload = function (event) {
+                        let fileContentAsString = event.target.result;
+                        console.log('fileContentAsString :>> ', fileContentAsString);
+                        oCodeEditor.setValue(fileContentAsString);
+                    };
+                    reader.readAsText(file);
+                    // console.log("oCodeEditor =>", oCodeEditor);
+                }
+
             },
             onUploadCompleteFileToBlob(oEvent) {
 

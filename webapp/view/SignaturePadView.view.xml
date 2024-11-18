@@ -156,6 +156,7 @@
                                 id="codeFileToBlob"
                                 width="100%"
                                 height="100%"
+                                maxLines="20"
                             />
                         </l:VerticalLayout>
                     </l:HorizontalLayout>
