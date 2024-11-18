@@ -14,8 +14,12 @@
         title="{i18n>title}"
     >
         <content>
-            <m:HBox id="hBoxSignaturePad">
+            <m:HBox
+                id="hBoxSignaturePad"
+                alignContent="Stretch"
+            >
                 <m:FlexBox
+                    fitContainer="true"
                     width="100%"
                     id="generalFeaturesFlexBox"
                     alignItems="Center"
@@ -23,24 +27,29 @@
                 >
                     <l:VerticalLayout
                         id="verticalLayout"
-                        class="sapUiContentPadding"
                         width="100%"
                     >
-                        <control:SignaturePad id="mySignaturePad" />
+                        <control:SignaturePad
+                            id="mySignaturePad"
+                            class="sapUiSmallMargin"
+                        />
                         <l:HorizontalLayout id="horizontalLayout1">
                             <m:Button
                                 id="undoSignaturePad"
+                                class="sapUiSmallMargin"
                                 text="Undo"
                                 press="onUndo"
                             />
                             <m:Button
                                 id="redoSignaturePad"
+                                class="sapUiSmallMargin"
                                 text="Redo"
                                 press="onRedo"
                             />
 
                             <m:Button
                                 id="clearSignaturePad"
+                                class="sapUiSmallMargin"
                                 text="Clear"
                                 press="onClear"
                             />
@@ -49,11 +58,13 @@
                         <l:HorizontalLayout id="horizontalLayout3">
                             <m:Button
                                 id="popoverBackgroundColorPickerSignaturePad"
+                                class="sapUiSmallMargin"
                                 text="Background Color"
                                 press="onPopoverColorPickerSignaturePad"
                             />
                             <m:Button
                                 id="popoverColorPickerSignaturePad"
+                                class="sapUiSmallMargin"
                                 text="Color"
                                 press="onPopoverColorPickerSignaturePad"
                             />
@@ -61,40 +72,46 @@
                         <l:HorizontalLayout id="horizontalLayout4">
                             <m:Button
                                 id="savePNGSignaturePad"
+                                class="sapUiSmallMargin"
                                 text="Save PNG"
                                 press="onSavePNG"
                             />
                             <m:Button
                                 id="saveJPGSignaturePad"
+                                class="sapUiSmallMargin"
                                 text="Save JPG"
                                 press="onSaveJPG"
                             />
                             <m:Button
                                 id="saveSVGSignaturePad"
+                                class="sapUiSmallMargin"
                                 text="Save SVG"
                                 press="onSaveSVG"
                             />
                         </l:HorizontalLayout>
                         <m:Text
                             id="textPenWidthSignaturePad"
+                            class="sapUiSmallMargin"
                             text="Tickness"
                         />
                         <m:Slider
                             id="penWidthSignaturePad"
+                            class="sapUiSmallMargin"
                             width="100%"
                             step="0.1"
                             liveChange="onLivePenWidthChange"
                             showAdvancedTooltip="true"
                             showHandleTooltip="false"
                             inputsAsTooltips="true"
-                            class="sapUiMediumMarginBottom"
                         />
                         <m:Text
                             id="textDotSizeSignaturePad"
+                            class="sapUiSmallMargin"
                             text="Dot Size"
                         />
                         <m:Slider
                             id="dotSizeSignaturePad"
+                            class="sapUiSmallMargin"
                             width="100%"
                             max="100"
                             step="1"
@@ -102,11 +119,11 @@
                             showAdvancedTooltip="true"
                             showHandleTooltip="false"
                             inputsAsTooltips="true"
-                            class="sapUiMediumMarginBottom"
                         />
                     </l:VerticalLayout>
                 </m:FlexBox>
                 <m:FlexBox
+                    fitContainer="true"
                     id="uploadFileFeaturesFlexBox"
                     width="100%"
                     alignItems="Start"
@@ -118,6 +135,7 @@
                         >
                             <u:FileUploader
                                 id="uploadFileSignaturePad"
+                                class="sapUiSmallMargin"
                                 name="myFileUpload"
                                 uploadUrl=""
                                 placeholder="File to Blob"
@@ -128,34 +146,16 @@
                             />
                             <m:Image
                                 id="imageBlobToFile"
+                                class="sapUiSmallMargin"
                                 width="100%"
                                 height="100%"
-                            />
-                        </l:VerticalLayout>
-                    </l:HorizontalLayout>
-                </m:FlexBox>
-                <m:FlexBox
-                    id="uploadBlobFeaturesFlexBox"
-                    width="100%"
-                    alignItems="Start"
-                    justifyContent="Center"
-                >
-                    <l:HorizontalLayout id="horizontalLayoutBlobToFile">
-                        <l:VerticalLayout
-                            id="verticalHorizontalLayoutBlobToFile"
-                        >
-                            <u:FileUploader
-                                id="uploadBlobSignaturePad"
-                                name="myFileUpload"
-                                placeholder="Blob to File"
-                                uploadUrl="upload/"
-                                tooltip="Upload your file to the local server"
-                                uploadComplete="onUploadCompleteBlobToFile"
                             />
                             <c:CodeEditor
                                 id="codeFileToBlob"
+                                class="sapUiSmallMargin"
                                 width="100%"
                                 height="100%"
+                                value="test"
                                 maxLines="20"
                             />
                         </l:VerticalLayout>
