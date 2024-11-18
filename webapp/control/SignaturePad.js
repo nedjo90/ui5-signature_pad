@@ -97,8 +97,8 @@ sap.ui.define(
             onBeforeRendering: function () { },
             onAfterRendering: function () {
                 this.oCanvas = document.querySelector("#signaturePadCanvas");
-                console.log('this.oCanvas :>> ', this.oCanvas);
-                console.log("this", this);
+                // console.log('this.oCanvas :>> ', this.oCanvas);
+                // console.log("this", this);
                 try {
                     this.resizeCanvas();
                     this.oSignaturePad = new SignaturePad(
@@ -116,12 +116,12 @@ sap.ui.define(
                             "canvasContextOptions": this.getCanvasContextOptions()
                         }
                     );
-                    console.log('this.signaturePad :>> ', this.oSignaturePad);
+                    // console.log('this.signaturePad :>> ', this.oSignaturePad);
                     this.oSignaturePad.addEventListener("endStroke", () => this.onendStrock());
                     sap.ui.Device.resize.attachHandler(() => this.resizeCanvas(true));
-                    console.log('sap.ui.Device.systeme.phone :>> ', sap.ui.Device.system.phone);
+                    // console.log('sap.ui.Device.systeme.phone :>> ', sap.ui.Device.system.phone);
                 } catch (e) {
-                    console.error(e);
+                    // console.error(e);
                 }
             },
             onExit: function () { },
@@ -191,7 +191,7 @@ sap.ui.define(
                 this.oSignaturePad.dotSize = iDotSize;
             },
             // https://developer.mozilla.org/en-US/docs/Web/API/Blob
-            dataUrlToBlob(sDataUrl) {
+            dataUrlToBlob(sDataUrl = this.oSignaturePad.toDataURL()) {
                 const aParts = sDataUrl.split(';base64,');
                 const sContentType = aParts[0].split(":")[1];
                 const aRaw = window.atob(aParts[1]);
@@ -200,7 +200,9 @@ sap.ui.define(
                 for (let i = 0; i < iRawLength; ++i) {
                     uInt8Array[i] = aRaw.charCodeAt(i);
                 }
-                return new Blob([uInt8Array], { type: sContentType });
+                const sBlob = new Blob([uInt8Array], { type: sContentType });
+                // console.log('sBlob :>> ', sBlob);
+                return sBlob;
             },
             download(sDataURL, sFilename) {
                 const oBlob = this.dataUrlToBlob(sDataURL);

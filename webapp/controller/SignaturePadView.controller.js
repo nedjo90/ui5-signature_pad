@@ -20,7 +20,7 @@ sap.ui.define([
                 this.penWidthSlider.setMin(this.oSignaturePad.penMinWidth);
                 this.penWidthSlider.setMax(this.oSignaturePad.penMaxWidth);
                 this.onLivePenWidthChange = this.onLivePenWidthChange.bind(this);
-                
+
                 this.dotSize = this.oSignaturePad.getDotSize();
 
             },
@@ -97,5 +97,16 @@ sap.ui.define([
                 console.log('this.oSignaturePad :>> ', this.oSignaturePad);
                 this.oSignaturePad.saveInSVG();
             },
+            onFileUploaderChange(oEvent) {
+                let file = oEvent.getParameter("files") && oEvent.getParameter("files")[0];
+                console.log('file :>> ', file);
+                const oImage = this.byId("imageBlobToFile");
+                oImage.setSrc(URL.createObjectURL(file))
+            },
+            onUploadCompleteFileToBlob(oEvent) {
+
+            },
+            onUploadCompleteBlobToFile(oEvent) {
+            }
         });
     });
