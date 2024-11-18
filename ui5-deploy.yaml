@@ -12,8 +12,7 @@ builder:
       afterTask: generateCachebusterInfo
       configuration:
         target:
-          url: https://s4hana.net-portail.com
-          client: '100'
+          url: https://s4hana.net-portail.com:443
         app:
           name: ZSIGPAD
           description: control signature pad
