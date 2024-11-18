@@ -1,0 +1,107 @@
+<mvc:View
+    controllerName="projectsignaturepad.signaturepadproject.controller.SignaturePadView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:unified="sap.ui.unified"
+    xmlns:control="projectsignaturepad.signaturepadproject.control"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <m:FlexBox
+                id="flexBox"
+                alignItems="Center"
+                justifyContent="Center"
+            >
+                <l:VerticalLayout
+                    id="verticalLayout"
+                    class="sapUiContentPadding"
+                    width="100%"
+                >
+                    <control:SignaturePad id="mySignaturePad" />
+                    <l:HorizontalLayout id="horizontalLayout1">
+                        <m:Button
+                            id="undoSignaturePad"
+                            text="Undo"
+                            press="onUndo"
+                        />
+                        <m:Button
+                            id="redoSignaturePad"
+                            text="Redo"
+                            press="onRedo"
+                        />
+                        
+                        <m:Button
+                            id="clearSignaturePad"
+                            text="Clear"
+                            press="onClear"
+                        />
+                    </l:HorizontalLayout>
+                    <l:HorizontalLayout id="horizontalLayout2">
+                        <m:Button
+                            id="popoverBackgroundColorPickerSignaturePad"
+                            text="Background Color"
+                            press="onPopoverColorPickerSignaturePad"
+                        />
+                        <m:Button
+                            id="popoverColorPickerSignaturePad"
+                            text="Color"
+                            press="onPopoverColorPickerSignaturePad"
+                        />
+                    </l:HorizontalLayout>
+                    <l:HorizontalLayout id="horizontalLayout3">
+                        <m:Button
+                            id="savePNGSignaturePad"
+                            text="Save PNG"
+                            press="onSavePNG"
+                        />
+                        <m:Button
+                            id="saveJPGSignaturePad"
+                            text="Save JPG"
+                            press="onSaveJPG"
+                        />
+                        <m:Button
+                            id="saveSVGSignaturePad"
+                            text="Save SVG"
+                            press="onSaveSVG"
+                        />
+                    </l:HorizontalLayout>
+                    <m:Text
+                        id="textPenWidthSignaturePad"
+                        text="Tickness"
+                    />
+                    <m:Slider
+                        id="penWidthSignaturePad"
+                        width="100%"
+                        step="0.1"
+                        liveChange="onLivePenWidthChange"
+                        showAdvancedTooltip="true"
+                        showHandleTooltip="false"
+                        inputsAsTooltips="true"
+                        class="sapUiMediumMarginBottom"
+                    />
+                    <m:Text
+                        id="textDotSizeSignaturePad"
+                        text="Dot Size"
+                    />
+                    <m:Slider
+                        id="dotSizeSignaturePad"
+                        width="100%"
+                        max="100"
+                        step="1"
+                        liveChange="onLiveDotSizeChange"
+                        showAdvancedTooltip="true"
+                        showHandleTooltip="false"
+                        inputsAsTooltips="true"
+                        class="sapUiMediumMarginBottom"
+                    />
+                </l:VerticalLayout>
+            </m:FlexBox>
+        </content>
+    </Page>
+</mvc:View>
